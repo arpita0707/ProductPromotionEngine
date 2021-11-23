@@ -14,7 +14,7 @@ namespace PromotionEngineBL
             _promotionDAL = promotionDAL;
         }
 
-        public int GetCartPrice(List<CartProduct> cart)
+        public decimal GetCartPrice(List<CartProduct> cart)
         {
             if (!cart.Any())
             {
@@ -23,13 +23,13 @@ namespace PromotionEngineBL
 
             var cartProductIds = cart.Select(x => x.ProductID).ToList();
             var promotions = _promotionDAL.GetPromotionsFor(cartProductIds);
-            int cartPrice = 0;
+            decimal cartPrice = 0;
 
             // validation check
             var products = _productDAL.GetProductsForIds(cartProductIds);
             if (cart.Count > products.Count)
             {
-                throw new ArgumentNullException(nameof(cart), "contains some duplicate project ids or project ids that does not exist");
+                throw new ArgumentNullException(nameof(cart), "contains some duplicate product ids or product ids that does not exist");
             }
 
             foreach (var promotion in promotions)

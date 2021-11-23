@@ -16,7 +16,7 @@ namespace PromotionEngineAPI.Controllers
         }
 
         [HttpPost("GetCartPrice")]
-        public ActionResult<int> GetCartPrice(List<CartProduct> cartProducts)
+        public ActionResult<decimal> GetCartPrice(List<CartProduct> cartProducts)
         {
             try
             {

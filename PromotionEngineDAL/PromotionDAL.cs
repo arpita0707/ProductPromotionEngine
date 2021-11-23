@@ -39,8 +39,8 @@ namespace PromotionEngineDAL
             {
                 new ProductQuantity { ProductID = 6, Quantity = 10 }
             };
-            // if DiscountPercent is specified for permotion then DiscountPercent will be applied and promotion price will be ignored
-            promotions.Add(new Promotion { Id = Guid.NewGuid(), Terms = productQuantity, DiscountPercent = 20, Type = PromotionType.Single, Enabled = true });
+            // if DiscountPercent is specified for promotion then DiscountPercent will be applied and promotion price will be ignored
+            promotions.Add(new Promotion { Id = Guid.NewGuid(), Terms = productQuantity, DiscountPercent = 20, Price = 0, Type = PromotionType.Single, Enabled = true });
 
 
             return promotions;
